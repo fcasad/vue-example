@@ -1,0 +1,161 @@
+{
+  "companies": [
+    {
+      "id": "7b04be56-8208-4b7b-8034-b9e3b2b4e770",
+      "name": "Renner, Kassulke and Gusikowski"
+    },
+    {
+      "id": "0e709970-b4b9-4e74-a262-56dd6991e7ee",
+      "name": "Reichert - Rau"
+    }
+  ],
+  "teams": [
+    {
+      "id": "57d4e72b-4605-4296-b305-1cdbd7439f4f",
+      "name": "Grocery",
+      "companyId": "0e709970-b4b9-4e74-a262-56dd6991e7ee"
+    },
+    {
+      "id": "25f0e9ce-badf-4efe-b5ec-4bc4c06be44c",
+      "name": "Health",
+      "companyId": "7b04be56-8208-4b7b-8034-b9e3b2b4e770"
+    },
+    {
+      "id": "9290c917-11bd-4336-8002-0b88175787b7",
+      "name": "Computers",
+      "companyId": "0e709970-b4b9-4e74-a262-56dd6991e7ee"
+    },
+    {
+      "id": "0ac08f43-9fda-4b18-b7d0-40f6de0227ac",
+      "name": "Books",
+      "companyId": "7b04be56-8208-4b7b-8034-b9e3b2b4e770"
+    },
+    {
+      "id": "cdd24d13-5201-48a9-87c2-5316221625f5",
+      "name": "Games",
+      "companyId": "0e709970-b4b9-4e74-a262-56dd6991e7ee"
+    }
+  ],
+  "users": [
+    {
+      "id": "9f2bf1d3-dbf1-4bb9-8d9d-95dda570891b",
+      "lastName": "Hirthe",
+      "firstName": "Nicole",
+      "email": "Damian.Dare@yahoo.com",
+      "password": "RSID70Jcw66KuAj",
+      "title": "National Quality Technician",
+      "createdAt": "2018-05-10T01:22:51.577Z",
+      "teamId": "0ac08f43-9fda-4b18-b7d0-40f6de0227ac"
+    },
+    {
+      "id": "0fb6d290-ee9d-468d-8fb7-65ae57e6f227",
+      "lastName": "Dibbert",
+      "firstName": "Devan",
+      "email": "Omer13@gmail.com",
+      "password": "tVZxFVfXXtl7EpH",
+      "title": "Dynamic Communications Representative",
+      "createdAt": "2018-01-30T04:58:31.725Z",
+      "teamId": "25f0e9ce-badf-4efe-b5ec-4bc4c06be44c"
+    },
+    {
+      "id": "1b3d655d-5b7c-410c-b891-bcbbdec7bcae",
+      "lastName": "Kohler",
+      "firstName": "Mia",
+      "email": "Alisa41@yahoo.com",
+      "password": "tPKV9EBaCMiGOw6",
+      "title": "Principal Intranet Analyst",
+      "createdAt": "2017-09-25T12:13:03.227Z",
+      "teamId": "9290c917-11bd-4336-8002-0b88175787b7"
+    },
+    {
+      "id": "b23ea431-7a4e-4075-8f26-c6c9636688ee",
+      "lastName": "Trantow",
+      "firstName": "Wayne",
+      "email": "Dayana4@gmail.com",
+      "password": "ToXVBvOEXS3V2ye",
+      "title": "Dynamic Accounts Consultant",
+      "createdAt": "2018-03-03T01:27:10.611Z",
+      "teamId": "0ac08f43-9fda-4b18-b7d0-40f6de0227ac"
+    },
+    {
+      "id": "11d47969-4ad5-4f2d-8261-b635080fa5ab",
+      "lastName": "Cole",
+      "firstName": "Orion",
+      "email": "Joanie.Flatley13@gmail.com",
+      "password": "4okK16ln4umrY9p",
+      "title": "District Interactions Director",
+      "createdAt": "2017-08-06T13:01:07.490Z",
+      "teamId": "0ac08f43-9fda-4b18-b7d0-40f6de0227ac"
+    },
+    {
+      "id": "b162ee7a-f73e-4d0c-a27b-5cce3e079d7b",
+      "lastName": "Stokes",
+      "firstName": "Aurelio",
+      "email": "Margaret_Schneider53@yahoo.com",
+      "password": "4UNWnupqeztjqhe",
+      "title": "Chief Directives Specialist",
+      "createdAt": "2018-06-26T21:12:53.540Z",
+      "teamId": "57d4e72b-4605-4296-b305-1cdbd7439f4f"
+    },
+    {
+      "id": "a57f00d4-6841-4957-bbee-0b91183d4f62",
+      "lastName": "Mosciski",
+      "firstName": "Catherine",
+      "email": "Kamryn_Parisian@gmail.com",
+      "password": "79j4aG7AAd4UuPy",
+      "title": "District Applications Developer",
+      "createdAt": "2017-08-07T10:28:26.326Z",
+      "teamId": "57d4e72b-4605-4296-b305-1cdbd7439f4f"
+    },
+    {
+      "id": "06d54cf0-49ed-4558-89d0-6971cf21983d",
+      "lastName": "Berge",
+      "firstName": "Mallie",
+      "email": "Lowell_White@yahoo.com",
+      "password": "etSJ2ItEAJzypjz",
+      "title": "Customer Implementation Orchestrator",
+      "createdAt": "2018-03-28T06:22:34.319Z",
+      "teamId": "9290c917-11bd-4336-8002-0b88175787b7"
+    },
+    {
+      "id": "ce8ba95b-c1f3-4191-84f1-7d8a29c09b4f",
+      "lastName": "Hyatt",
+      "firstName": "Gisselle",
+      "email": "Retha_Collier@yahoo.com",
+      "password": "m5ZPSXcbegO5AaH",
+      "title": "Internal Web Representative",
+      "createdAt": "2017-12-05T19:48:46.643Z",
+      "teamId": "9290c917-11bd-4336-8002-0b88175787b7"
+    },
+    {
+      "id": "510cc982-edb7-4b15-93de-840f46af07c1",
+      "lastName": "Bechtelar",
+      "firstName": "Tania",
+      "email": "Berta.Vandervort31@hotmail.com",
+      "password": "67fCMeRHwGnYyvV",
+      "title": "National Markets Planner",
+      "createdAt": "2018-03-13T04:03:07.707Z",
+      "teamId": "25f0e9ce-badf-4efe-b5ec-4bc4c06be44c"
+    },
+    {
+      "id": "a8f8d2c6-e3ba-4576-a8ef-00a29cee9c2d",
+      "lastName": "VonRueden",
+      "firstName": "Kira",
+      "email": "Manuela_Gusikowski@hotmail.com",
+      "password": "QZTkvOn9CqUgXs0",
+      "title": "Future Interactions Orchestrator",
+      "createdAt": "2018-06-30T21:14:22.222Z",
+      "teamId": "57d4e72b-4605-4296-b305-1cdbd7439f4f"
+    },
+    {
+      "id": "3a4a51a0-dcf7-458c-b0ba-7ef19d7949a5",
+      "lastName": "Greenfelder",
+      "firstName": "Lucienne",
+      "email": "Bradley.Weissnat87@yahoo.com",
+      "password": "9ZCbJXp0xpYu1Ib",
+      "title": "International Markets Technician",
+      "createdAt": "2018-04-15T04:44:35.320Z",
+      "teamId": "25f0e9ce-badf-4efe-b5ec-4bc4c06be44c"
+    }
+  ]
+}
