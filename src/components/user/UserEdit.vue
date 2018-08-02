@@ -1,14 +1,69 @@
 <template>
-	<div>
+	<div v-if="user">
 		<h3>Edit User</h3>
-		<p>lastName: {{ lastName }}</p>
-		<p>firstName: {{ firstName }}</p>
-		<p>teamName: {{ teamName }}</p>
-		<p>title: {{ title }}</p>
-		<p>email: {{ email }}</p>
+		<form @submit.prevent="onSubmit">
+			<div class="form-group">
+				<label for="user-lname">Last Name</label>
+				<input 
+					type="text"
+					class="form-control"
+					id="user-lname"
+					v-model="form.lastName"
+				>
+			</div>
+			<div class="form-group">
+				<label for="user-fname">First Name</label>
+				<input 
+					type="text"
+					class="form-control"
+					id="user-fname"
+					v-model="form.firstName"
+				>
+			</div>
+			<div class="form-group">
+				<label for="user-team">Team</label>
+				<select class="form-control" id="user-team" v-model="form.teamId">
+					<option 
+						v-for="option in teamOptions" 
+						:key="option.value" 
+						:value="option.value"
+					>
+						{{ option.name }}
+					</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="user-title">Title</label>
+				<input 
+					type="text"
+					class="form-control"
+					id="user-title"
+					v-model="form.title"
+				>
+			</div>
+			<div class="form-group">
+				<label for="user-email">Email address</label>
+				<input 
+					type="email"
+					class="form-control"
+					id="user-email"
+					v-model="form.email"
+				>
+			</div>
+			<button 
+				type="button" 
+				class="btn btn-danger" 
+				@click="form = getDefaultData()"
+			>
+				Clear
+			</button>
+			<button type="button" class="btn" @click="form = getUserData(user)">Reset</button>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+
 		<router-link 
-			:to="{ name : 'userDetailRoute', params: { id } }" 
-			tag="button" 
+			:to="{ name : 'userDetailRoute', params: { id: user.id } }"
+			tag="button"
 			class="btn btn-warning"
 		>
 			back to user
@@ -17,42 +72,84 @@
 </template>
 
 <script>
-	import * as api from '../../api';
+	import _ from 'lodash';
 
 	export default {
 		data() {
 			return {
-				user: null,
+				form: this.getDefaultData(),
 			};
 		},
 		computed: {
-			id() {
-				return (this.user && this.user.id) || '';
+			user() {
+				return this.$store.getters.currentUser;
 			},
-			firstName() {
-				return (this.user && this.user.firstName) || '';
-			},
-			lastName() {
-				return (this.user && this.user.lastName) || '';
-			},
-			teamName() {
-				return (this.user && this.user.team && this.user.team.name) || '';
-			},
-			title() {
-				return (this.user && this.user.title) || '';
-			},
-			email() {
-				return (this.user && this.user.email) || '';
-			},
+			teamOptions() {
+				return this.$store.getters.teams
+					.map(team => ({ name: team.name, value: team.id }));
+			}
 		},
 		methods: {
-			loadData(route) {
-				api.getUser(route.params.id)
-					.then(user => { this.user = user });
+			loadData() {
+				this.$store.dispatch('readUser', { id: this.$route.params.id });
+				this.$store.dispatch('readTeams');
+			},
+			getDefaultData() {
+				return Object.assign({}, {
+					lastName: '',
+					firstName: '',
+					teamId: '',
+					title: '',
+					email: '',
+				});
+			},
+			getUserData(user) {
+				if (!user) {
+					return this.getDefaultData();
+				}
+				return {
+					lastName: user.lastName,
+					firstName: user.firstName,
+					teamId: user.team.id,
+					title: user.title,
+					email: user.email,
+				};
+			},
+			formIsPristine() {
+				const formData = Object.assign({}, this.form);
+				const previousData = this.getUserData(this.user);
+				return _.isEqual(formData, previousData);
+			},
+			goToUserIndex() {
+				this.$router.push({ name: 'userIndexRoute' });
+			},
+			onSubmit() {
+				if (this.formIsPristine()) {
+					return this.goToUserIndex();
+				}
+				const id = this.user.id;
+				const update = this.form;
+				this.$store.dispatch('updateUser', { id, update })
+					.then(this.goToUserIndex);
 			},
 		},
-		created() {
-			this.loadData(this.$route);
+		watch: {
+			user(user) {
+				this.form = this.getUserData(user);
+			},
+		},
+		beforeRouteEnter (to, from, next) {
+			next(vm => vm.loadData());
+		},
+		beforeRouteLeave (to, from, next) {
+			if (this.formIsPristine()) {
+				return next();
+			}
+			if (confirm('Leaving this page will reset unsaved changes!')) {
+				next();
+			} else {
+				next(false);
+			}
 		},
 	}
 </script>

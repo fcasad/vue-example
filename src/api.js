@@ -21,12 +21,12 @@ const fetchJSON = ({
 		.then(res => Promise.resolve(res.data))
 		.catch(err => Promise.reject(err));
 
-export const listUsers = () => fetchJSON({ 
+export const readUsers = () => fetchJSON({ 
 	url: 'users',
 	query: { _sort: 'lastName' },
 });
 
-export const getUser = userId => fetchJSON({ 
+export const readUser = userId => fetchJSON({ 
 	url: `users/${userId}`,
 	query: { _expand: 'team' },
 });
@@ -36,3 +36,5 @@ export const updateUser = (userId, update) => fetchJSON({
 	url: `users/${userId}`,
 	body: update,
 });
+
+export const readTeams = () => fetchJSON({ url: 'teams' });

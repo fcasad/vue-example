@@ -9,15 +9,9 @@
 
 <script>
 	export default {
-		// created() {
-		// console.log("created user", this.$route)
-		// },
-		// watch: {
-		// 	'$route': (to, from) => console.log("watching user", to),
-		// },
 		methods: {
 			goToHome() {
-				this.$router.push({ name: 'indexRoute' })
+				this.$router.push({ name: 'indexRoute' });
 			} 
 		},
 	}

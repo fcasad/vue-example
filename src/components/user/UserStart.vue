@@ -16,22 +16,19 @@
 </template>
 
 <script>
-    import * as api from '../../api';
-
 	export default {
-		data() {
-			return {
-				users: [],
-			};
-		},
-        methods: {
-            loadData() {
-                api.listUsers()
-                    .then(users => { this.users = users; });
+        computed: {
+            users() {
+                return this.$store.getters.users;
             },
         },
-        created() {
-            this.loadData();
+        methods: {
+            loadData() {
+                this.$store.dispatch('readUsers');
+            },
+        },
+        beforeRouteEnter (to, from, next) {
+            next(vm => vm.loadData());
         },
 	}
 </script>

@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
+    "lodash": "^4.17.10",
     "normalizer": "^1.2.7",
     "vue": "^2.0.1",
     "vue-router": "^3.0.1",

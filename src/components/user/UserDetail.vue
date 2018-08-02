@@ -1,11 +1,11 @@
 <template>
-	<div>
-		<h3>{{ name }}</h3>
-		<h4>{{ teamName }} Team</h4>
-		<p>{{ title }}</p>
-		<p>{{ email }}</p>
+	<div v-if="user">
+		<h3>{{ user.lastName }}, {{ user.firstName }}</h3>
+		<h4>{{ user.team.name }} Team</h4>
+		<p>{{ user.title }}</p>
+		<p>{{ user.email }}</p>
 		<router-link 
-			:to="{ name: 'userEditRoute', params: { id } }" 
+			:to="{ name: 'userEditRoute', params: { id: user.id } }" 
 			tag="button" 
 			class="btn btn-warning"
 		>
@@ -18,38 +18,18 @@
 	import * as api from '../../api';
 
 	export default {
-		data() {
-			return {
-				user: null,
-			};
-		},
 		computed: {
-			id() {
-				return (this.user && this.user.id) || '';
-			},
-			name() {
-				const last = this.user && this.user.lastName;
-				const first = this.user && this.user.firstName;
-				return (last && first) ? `${last}, ${first}` : '';
-			},
-			teamName() {
-				return (this.user && this.user.team && this.user.team.name) || '';
-			},
-			title() {
-				return (this.user && this.user.title) || '';
-			},
-			email() {
-				return (this.user && this.user.email) || '';
+			user() {
+				return this.$store.getters.currentUser;
 			},
 		},
 		methods: {
-			loadData(route) {
-				api.getUser(route.params.id)
-					.then(user => { this.user = user });
+			loadData() {
+				this.$store.dispatch('readUser', { id: this.$route.params.id });
 			},
 		},
-		created() {
-			this.loadData(this.$route);
+		beforeRouteEnter (to, from, next) {
+			next(vm => vm.loadData());
 		},
 	}
 </script>
