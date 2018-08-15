@@ -5,6 +5,8 @@
 </template>
 
 <script>
+    import { hasProp } from '../../utils/validators'; 
+
     const sizes = {
         xsmall: 1.5,
         small: 2,
@@ -22,7 +24,7 @@
             size: {
                 type: String,
                 default: 'medium',
-                validator: val => !!sizes[val],
+                validator: val => hasProp(val, sizes),
             }
         },
         data() {

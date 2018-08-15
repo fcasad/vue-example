@@ -1,8 +1,7 @@
 <template>
 	<div class="form-group">
 		<label for="name" v-if="labelText" v-bind="labelProps">{{ labelText }}</label>
-		<input 
-			type="type"
+		<input
 			class="form-control"
 			id="name"
 			:value="value"
@@ -21,12 +20,20 @@
 				type: String,
 				required: true,
 			},
-			type: {
-				type: String,
-				default: 'text',
+			labelProps: {
+				type: Object,
+				default() {
+					return {};
+				}
 			},
-			labelProps: Object,
-			inputProps: Object,
+			inputProps: {
+				type: Object,
+				default() {
+					return {
+						type: 'text',
+					};
+				}
+			},
 		}
 	};
 </script>

@@ -2,54 +2,16 @@
 	<div v-if="user">
 		<h3>Edit User</h3>
 		<form @submit.prevent="onSubmit">
-			<div class="form-group">
-				<label for="user-lname">Last Name</label>
-				<input 
-					type="text"
-					class="form-control"
-					id="user-lname"
-					v-model="form.lastName"
-				>
-			</div>
-			<div class="form-group">
-				<label for="user-fname">First Name</label>
-				<input 
-					type="text"
-					class="form-control"
-					id="user-fname"
-					v-model="form.firstName"
-				>
-			</div>
-			<div class="form-group">
-				<label for="user-team">Team</label>
-				<select class="form-control" id="user-team" v-model="form.teamId">
-					<option 
-						v-for="option in teamOptions" 
-						:key="option.value" 
-						:value="option.value"
-					>
-						{{ option.name }}
-					</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="user-title">Title</label>
-				<input 
-					type="text"
-					class="form-control"
-					id="user-title"
-					v-model="form.title"
-				>
-			</div>
-			<div class="form-group">
-				<label for="user-email">Email address</label>
-				<input 
-					type="email"
-					class="form-control"
-					id="user-email"
-					v-model="form.email"
-				>
-			</div>
+			<app-input-field name="user-lname" labelText="Last Name" v-model="form.lastName">
+			</app-input-field>
+			<app-input-field name="user-fname" labelText="First Name" v-model="form.firstName">
+			</app-input-field>
+			<app-select-field name="user-team" labelText="Team" :options="teamOptions" v-model="form.teamId">
+			</app-select-field>
+			<app-input-field name="user-title" labelText="Title" v-model="form.title">
+			</app-input-field>
+			<app-input-field name="user-email" labelText="Email Address" v-model="form.email" :inputProps="{ type: 'email' }">
+			</app-input-field>
 			<button 
 				type="button" 
 				class="btn btn-danger" 
@@ -74,7 +36,14 @@
 <script>
 	import _ from 'lodash';
 
+	import InputField from '../components/presentational/InputField.vue';
+	import SelectField from '../components/presentational/SelectField.vue';
+
 	export default {
+		components: {
+			'app-input-field': InputField,
+			'app-select-field': SelectField,
+		},
 		data() {
 			return {
 				form: this.getDefaultData(),
@@ -86,7 +55,7 @@
 			},
 			teamOptions() {
 				return this.$store.getters.teams
-					.map(team => ({ name: team.name, value: team.id }));
+					.map(team => ({ label: team.name, value: team.id }));
 			}
 		},
 		methods: {
