@@ -15,8 +15,6 @@
 </template>
 
 <script>
-	import * as api from '../../api';
-
 	export default {
 		computed: {
 			user() {

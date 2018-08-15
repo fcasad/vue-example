@@ -4,6 +4,7 @@
         <hr>
         <ul class="list-group">
             <router-link v-for="user in users"
+                :key="user.id"
             	:to="{ name: 'userDetailRoute', params: { id: user.id } }"
             	tag="li" 
             	class="list-group-item" 

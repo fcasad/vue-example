@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from './components/Home.vue';
-import User from './components/user/User.vue';
-import UserStart from './components/user/UserStart.vue';
-import UserDetail from './components/user/UserDetail.vue';
-import UserEdit from './components/user/UserEdit.vue';
-import NotFound from './components/NotFound.vue';
+import Home from './pages/Home.vue';
+import User from './pages/User.vue';
+import UserStart from './pages/UserStart.vue';
+import UserDetail from './pages/UserDetail.vue';
+import UserEdit from './pages/UserEdit.vue';
+import NotFound from './pages/NotFound.vue';
 
 Vue.use(VueRouter);
 
