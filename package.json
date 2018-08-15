@@ -4,6 +4,7 @@
   "author": "",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "seed": "node seedDB.js",
     "server": "json-server --watch db.json"
@@ -19,6 +20,11 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/addon-knobs": "^3.4.10",
+    "@storybook/addon-notes": "^3.4.10",
+    "@storybook/addon-viewport": "^3.4.10",
+    "@storybook/vue": "^3.4.10",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
