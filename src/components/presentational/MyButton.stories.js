@@ -5,13 +5,13 @@ import { action } from '@storybook/addon-actions';
 
 import MyButton from './MyButton.vue';
 
-const sizes = {
-    xsmall: 0.5,
-    small: 1,
-    medium: 2,
-    large: 2.5,
-    xlarge: 3,
-};
+const sizeOptions = [
+    'xsmall',
+    'small',
+    'medium',
+    'large',
+    'xlarge',
+];
 
 const makeComponent = () => {
     return {
@@ -25,7 +25,7 @@ const makeComponent = () => {
             return {
                 rounded: boolean('rounded', false),
                 btnText: text('children', 'Submit'),
-                size: select('size', Object.keys(sizes), 'medium'),
+                size: select('size', sizeOptions, 'medium'),
             };
         },
         methods: {
